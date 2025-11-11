@@ -166,7 +166,8 @@ def get_stats():
     })
 
 if __name__ == '__main__':
+    import os
+    port = int(os.environ.get('PORT', 5000))
     print("Starting Railway/Bus Ticket Booking System...")
-    print("Frontend: Open Frontend/index.html in your browser")
-    print("Backend API running on: http://localhost:5000")
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    print(f"Backend API running on port: {port}")
+    app.run(debug=False, host='0.0.0.0', port=port)
