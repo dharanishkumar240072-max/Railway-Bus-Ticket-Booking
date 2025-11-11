@@ -1,6 +1,4 @@
-const API_BASE = window.location.hostname === 'localhost' 
-    ? 'http://localhost:5000' 
-    : 'https://railway-booking-backend.onrender.com';
+const API_BASE = '';
 
 document.getElementById('bookingForm').addEventListener('submit', async (e) => {
     e.preventDefault();

@@ -1,9 +1,10 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory, send_file
 from flask_cors import CORS
 from datetime import datetime
 import uuid
+import os
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='../Frontend', static_url_path='')
 CORS(app)
 
 # In-memory storage for tickets
@@ -164,6 +165,14 @@ def get_stats():
         'waiting_tickets': len(waiting_queue),
         'max_seats_per_route': MAX_CONFIRMED_SEATS
     })
+
+@app.route('/')
+def serve_frontend():
+    return send_file('../Frontend/index.html')
+
+@app.route('/<path:path>')
+def serve_static_files(path):
+    return send_from_directory('../Frontend', path)
 
 if __name__ == '__main__':
     import os
