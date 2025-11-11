@@ -169,4 +169,4 @@ if __name__ == '__main__':
     print("Starting Railway/Bus Ticket Booking System...")
     print("Frontend: Open Frontend/index.html in your browser")
     print("Backend API running on: http://localhost:5000")
-    app.run(debug=True, port=5000)
+    app.run(debug=True, host='0.0.0.0', port=5000)
